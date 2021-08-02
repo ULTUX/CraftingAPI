@@ -20,15 +20,7 @@ public final class CraftingReloadedAPI extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemCraftHandler(), this);
 
         CraftingRecipe recipe = new CraftingRecipe(new ItemStack(Material.DIAMOND));
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 0);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 1);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 2);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 3);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 4);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 5);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 6);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 7);
-        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 64), 8);
+        recipe.addIngredient(new ItemStack(Material.COBBLESTONE, 1), 0);
 
         store.addRecipe(recipe);
     }

@@ -1,18 +1,24 @@
 package codes.ultux.plugins.craftingapi.craftingreloadedapi.events;
 
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.CraftingReloadedAPI;
 import codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels.CraftingRecipe;
 import codes.ultux.plugins.craftingapi.craftingreloadedapi.utils.CraftingUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
 
+
 public class ItemCraftHandler implements Listener {
+
+    @EventHandler(ignoreCancelled = true)
+    public void onCraftItem(CraftItemEvent event) {
+        System.out.println("Crafting...");
+    }
 
     @EventHandler(ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
@@ -22,17 +28,13 @@ public class ItemCraftHandler implements Listener {
            CraftingRecipe usedRecipe = CraftingUtils.getCraftingRecipe(craftingMatrix);
            if (usedRecipe != null) {
                if (inventory.getResult().equals(usedRecipe.getResult())) {
-                   if (event.getCurrentItem() != null && event.getCurrentItem().equals(usedRecipe.getResult())) {
-                       ItemStack[] items = new ItemStack[9];
-                       for (int i = 0; i < 9; i++) {
-                           items[i] = new ItemStack(Material.AIR);
-                       }
-                       Bukkit.getScheduler().scheduleSyncDelayedTask(CraftingReloadedAPI.instance, new Runnable() {
-                           @Override
-                           public void run() {
-                               inventory.setMatrix(items);
-                           }
-                       }, 1);
+                   if (event.getAction().equals(InventoryAction.MOVE_TO_OTHER_INVENTORY)){
+                       event.setCancelled(true);
+                       craftAllItems(inventory, usedRecipe, (Player) event.getWhoClicked());
+
+                   }
+                   else if (event.getCurrentItem() != null && event.getCurrentItem().equals(usedRecipe.getResult())) {
+                       CraftingUtils.craftItem(usedRecipe, craftingMatrix, inventory, true);
                    }
                }
                else {
@@ -41,5 +43,17 @@ public class ItemCraftHandler implements Listener {
                }
            }
        }
+    }
+
+    private void craftAllItems(CraftingInventory inventory, CraftingRecipe usedRecipe, Player player) {
+        if (CraftingUtils.giveItems(usedRecipe.getResult(), player)) {
+            CraftingUtils.craftItem(usedRecipe, inventory.getMatrix(), inventory, false);
+        }
+        while (CraftingUtils.verifyRecipe(usedRecipe, inventory.getMatrix())){
+            if (CraftingUtils.giveItems(usedRecipe.getResult(), player)) {
+                CraftingUtils.craftItem(usedRecipe, inventory.getMatrix(), inventory, false);
+            }
+        }
+
     }
 }
