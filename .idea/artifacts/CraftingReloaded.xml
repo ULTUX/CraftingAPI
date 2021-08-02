@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="CraftingReloaded">
-    <output-path>$USER_HOME$/Desktop/Minecraft/plugins</output-path>
-    <root id="archive" name="CraftingReloaded.jar">
-      <element id="module-output" name="CraftingReloadedAPI" />
-    </root>
-  </artifact>
-</component>
