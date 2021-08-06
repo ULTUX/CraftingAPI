@@ -1,16 +1,14 @@
-package codes.ultux.plugins.craftingapi.craftingreloadedapi.utils;
+package codes.ultux.plugins.craftingapi.craftingapi.utils;
 
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.CraftingReloadedAPI;
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels.CraftingRecipe;
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels.CraftingRecipeStore;
+import codes.ultux.plugins.craftingapi.craftingapi.CraftingReloadedAPI;
+import codes.ultux.plugins.craftingapi.craftingapi.datamodels.CraftingRecipe;
+import codes.ultux.plugins.craftingapi.craftingapi.datamodels.CraftingRecipeStore;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.CraftingInventory;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class CraftingUtils {

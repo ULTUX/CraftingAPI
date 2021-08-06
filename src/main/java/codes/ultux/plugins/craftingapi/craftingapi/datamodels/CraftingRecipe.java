@@ -1,6 +1,5 @@
-package codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels;
+package codes.ultux.plugins.craftingapi.craftingapi.datamodels;
 
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;

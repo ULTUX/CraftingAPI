@@ -1,4 +1,4 @@
-name: CraftingReloadedAPI
+name: CraftingAPI
 version: ${project.version}
-main: codes.ultux.plugins.craftingapi.craftingreloadedapi.CraftingReloadedAPI
+main: codes.ultux.plugins.craftingapi.craftingapi.CraftingReloadedAPI
 api-version: 1.15

@@ -1,4 +1,4 @@
-name: CraftingReloadedAPI
+name: CraftingAPI
 version: 1.0-SNAPSHOT
-main: codes.ultux.plugins.craftingapi.craftingreloadedapi.CraftingReloadedAPI
+main: codes.ultux.plugins.craftingapi.craftingapi.CraftingReloadedAPI
 api-version: 1.15

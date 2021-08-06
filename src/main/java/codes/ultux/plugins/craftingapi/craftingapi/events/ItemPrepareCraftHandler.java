@@ -1,8 +1,7 @@
-package codes.ultux.plugins.craftingapi.craftingreloadedapi.events;
+package codes.ultux.plugins.craftingapi.craftingapi.events;
 
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels.CraftingRecipe;
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels.CraftingRecipeStore;
-import codes.ultux.plugins.craftingapi.craftingreloadedapi.utils.CraftingUtils;
+import codes.ultux.plugins.craftingapi.craftingapi.datamodels.CraftingRecipe;
+import codes.ultux.plugins.craftingapi.craftingapi.utils.CraftingUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;

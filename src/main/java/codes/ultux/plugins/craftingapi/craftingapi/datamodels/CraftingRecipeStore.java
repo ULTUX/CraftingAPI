@@ -1,4 +1,4 @@
-package codes.ultux.plugins.craftingapi.craftingreloadedapi.datamodels;
+package codes.ultux.plugins.craftingapi.craftingapi.datamodels;
 
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
